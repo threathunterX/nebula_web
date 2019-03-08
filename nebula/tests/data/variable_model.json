@@ -1,0 +1,58 @@
+[
+  {
+    "module": "base",
+    "app": "nebula",
+    "name": "HTTP_DYNAMIC",
+    "remark": "http动态访问",
+    "visible_name": "http动态访问",
+    "dimension": "",
+    "status": "enable",
+    "type": "event",
+    "value_type": "",
+    "value_subtype": "",
+    "value_category": "",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "HTTP_DYNAMIC"
+      }
+    ],
+    "filter": {},
+    "period": {},
+    "function": {},
+    "groupbykeys": []
+  },
+  {
+    "module": "slot",
+    "app": "nebula",
+    "name": "did__visit_dynamic_count__1h__slot",
+    "remark": "单个设备每小时访问量",
+    "visible_name": "单个设备每小时访问量",
+    "dimension": "did",
+    "status": "enable",
+    "type": "aggregate",
+    "value_type": "",
+    "value_subtype": "",
+    "value_category": "did",
+    "source": [
+        {
+            "app": "nebula",
+            "name": "HTTP_DYNAMIC"
+        }
+    ],
+    "filter": {},
+    "period": {
+        "type": "hourly",
+        "value": "1"
+    },
+    "function": {
+        "method": "distinct_count",
+        "object": "did",
+        "object_type": "string",
+        "param": ""
+    },
+    "groupbykeys": [
+        "did"
+    ]
+}
+]

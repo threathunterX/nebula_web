@@ -1,0 +1,14 @@
+server: {{ Metrics_Server }}
+
+influxdb:
+  type: influxdb
+  url: {{ Influxdb_Url }}
+  username: test
+  password: test
+
+redis:
+  type: redis
+  host: {{ Redis_Host }}
+  port: {{ Redis_Port }}
+
+app: nebula_web

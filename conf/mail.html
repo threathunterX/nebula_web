@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>nebula alerting mail</title>
+    <style type="text/css"> table {
+        font-family: "Lucida Sans Unicode", "Lucida Grande", "Sans-Serif";
+        font-size: 12px;
+        text-align: left;
+        border-collapse: collapse;
+        margin: 20px;
+        width: 100%;
+    }
+
+    table th {
+        font-weight: normal;
+        font-size: 14px;
+        color: #000;
+        padding: 8px;
+        border-bottom:1px dashed #000;
+    }
+
+
+    table tr.normal td {
+        background: #FFF;
+        border-top: 1px solid #fff;
+        color: #000000;
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    table tbody tr:hover td {
+        background: #b8c4cb;
+    }
+
+    .desc {
+        border-left: 4px solid #4f4f4f;
+        padding: 2px;
+        width: 100%;
+        FILTER: progid: DXImageTransform.Microsoft.Gradient(gradientType=0, startColorStr=#b8c4cb, endColorStr=#f6f6f8);
+        /*IE 6 7 8*/
+
+        background: -ms-linear-gradient(left, #b8c4cb, #f6f6f8);
+        /* IE 10 */
+
+        background: -moz-linear-gradient(left, #b8c4cb, #f6f6f8);
+        /*火狐*/
+
+        background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#b8c4cb), to(#f6f6f8));
+        /*谷歌*/
+
+        background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#b8c4cb), to(#f6f6f8));
+        /* Safari 4-5, Chrome 1-9*/
+
+        background: -webkit-linear-gradient(left, #b8c4cb, #f6f6f8);
+        /*Safari5.1 Chrome 10+*/
+
+        background: -o-linear-gradient(left, #b8c4cb, #f6f6f8);
+        /*Opera 11.10+*/
+    }
+
+    .rulename {
+        margin: 5px;
+    }
+
+    .prod {
+        color: red;
+    }
+
+    .ruledesc {
+        margin: 5px;
+        color: #7A7A7A;
+    }
+    .detail{
+        border-left: 4px solid #4f4f4f;
+        overflow: hidden;
+
+    }
+    .item{
+        width:150px;
+        height:65px;
+        border:1px solid #4f4f4f;
+        margin:5px;
+        border-radius:3px;
+        float:left;
+    }
+    .key{
+        width:148px;
+        height:40px;
+        line-height:40px;
+        text-align:center;
+        color:#fff;
+        margin:1px;
+        background:#8f8f8f none repeat scroll 0% 0%;
+        border-radius:3px;
+    }
+    .item-time{
+        width:148px;
+        height:20px;
+        line-height:20px;
+        font-size:12px;
+        border-radius:3px;
+        text-align:center;
+        margin:1px;
+    }
+    .info{
+        background:#376092;
+        text-align:center;
+        color:#fff;
+        border: 1px solid #000;
+        border-radius:3px;
+        padding:2px 4px 0px 4px;
+    }
+
+    </style>
+
+</head>
+<body>
+<h1>Nebula告警</h1>
+<a class="info">时间段</a>&nbsp;<a> {{ convert_ts(fromtime) }} ~ {{ convert_ts(endtime) }}</a>
+<hr>
+{% for s in data %}
+    <div class="desc">
+        <h4 class="rulename {% if not s["test"] %} prod{% end %}">规则名称：{{ s["name"] }} {% if not s["test"] %}(生产规则){% end %}</h4><br>
+        <a class="ruledesc">规则简介：{{ s["desc"] }} </a><br>
+        <a class="ruledesc">规则条件：{{ s["action_desc"] }} </a><>
+        <a class="ruledesc">规则分值：{{ s["risk_score"] }} </a>
+    </div>
+
+    <div class="detail">
+        <table>
+            <thead>
+            <tr>
+                <th>类型</th>
+                <th>黑名单</th>
+                <th>命中时间</th>
+            </tr>
+            </thead>
+            <tbody>
+        {% for n in s["notices"] %}
+            <tr class="normal">
+                <td>{{ n.check_type }}</td>
+                <td><a href="{{ base_url }}/#/analysis/{{mapping_type(n.check_type)}}/{{n.key}}?timestamp={{n.timestamp/3600000*3600000}}">{{ n.key }}</a></td>
+                <td>{{ convert_ts(n.timestamp) }}</td>
+            </tr>
+        {% end %}
+            </tbody>
+        </table>
+    </div>
+    <hr>
+{% end %}
+</body>
+</html>

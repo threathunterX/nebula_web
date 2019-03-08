@@ -1,0 +1,273 @@
+[
+  {
+    "app": "nebula",
+    "name": "HTTP_DYNAMIC",
+    "visible_name": "http动态资源访问",
+    "remark": "http动态资源访问",
+    "type": "base",
+    "version": "1.0",
+    "properties": [
+      {
+        "name": "c_ip",
+        "type": "string",
+        "subtype": "",
+        "visible_name": "客户端ip",
+        "remark": "客户端ip"
+      },
+      {
+        "name": "sid",
+        "type": "string",
+        "subtype": "",
+        "visible_name": "sessionid",
+        "remark": "sessionid"
+      },
+      {
+        "name": "uid",
+        "type": "string",
+        "subtype": "",
+        "visible_name": "uid",
+        "remark": "用户id"
+      },
+      {
+        "name": "did",
+        "type": "string",
+        "subtype": "",
+        "visible_name": "did",
+        "remark": "设备id"
+      },
+      {
+        "name": "platform",
+        "type": "string",
+        "subtype": "",
+        "visible_name": "",
+        "remark": "平台"
+      },
+      {
+        "name": "page",
+        "type": "string",
+        "subtype": "",
+        "visible_name": "",
+        "remark": "规范化的url"
+      },
+      {
+        "name": "c_port",
+        "type": "long",
+        "subtype": "",
+        "visible_name": "",
+        "remark": "客户端端口"
+      },
+      {
+        "name": "c_bytes",
+        "type": "long",
+        "subtype": "",
+        "visible_name": "",
+        "remark": "请求体大小"
+      },
+      {
+        "name": "c_body",
+        "type": "string",
+        "subtype": "",
+        "visible_name": "",
+        "remark": "请求体"
+      },
+      {
+        "name": "c_type",
+        "type": "string",
+        "subtype": "",
+        "visible_name": "",
+        "remark": "请求体类型"
+      },
+      {
+        "name": "s_ip",
+        "type": "string",
+        "subtype": "",
+        "visible_name": "",
+        "remark": "服务端ip"
+      },
+      {
+        "name": "s_port",
+        "type": "long",
+        "subtype": "",
+        "visible_name": "",
+        "remark": "服务端端口"
+      },
+      {
+        "name": "s_bytes",
+        "type": "long",
+        "subtype": "",
+        "visible_name": "",
+        "remark": "响应大小"
+      },
+      {
+        "name": "s_body",
+        "type": "string",
+        "subtype": "",
+        "visible_name": "",
+        "remark": "响应体"
+      },
+      {
+        "name": "s_type",
+        "type": "string",
+        "subtype": "",
+        "visible_name": "",
+        "remark": "响应类型"
+      },
+      {
+        "name": "host",
+        "type": "string",
+        "subtype": "",
+        "visible_name": "",
+        "remark": "域名"
+      },
+      {
+        "name": "uri_stem",
+        "type": "string",
+        "subtype": "",
+        "visible_name": "",
+        "remark": "url路径"
+      },
+      {
+        "name": "uri_query",
+        "type": "string",
+        "subtype": "",
+        "visible_name": "",
+        "remark": "查询字符串"
+      },
+      {
+        "name": "referer",
+        "type": "string",
+        "subtype": "",
+        "visible_name": "",
+        "remark": ""
+      },
+      {
+        "name": "method",
+        "type": "string",
+        "subtype": "",
+        "visible_name": "",
+        "remark": "请求方法"
+      },
+      {
+        "name": "status",
+        "type": "long",
+        "subtype": "",
+        "visible_name": "",
+        "remark": "响应状态"
+      },
+      {
+        "name": "cookie",
+        "type": "string",
+        "subtype": "",
+        "visible_name": "",
+        "remark": ""
+      },
+      {
+        "name": "useragent",
+        "type": "string",
+        "subtype": "",
+        "visible_name": "",
+        "remark": "ua"
+      },
+      {
+        "name": "xforward",
+        "type": "string",
+        "subtype": "",
+        "visible_name": "",
+        "remark": ""
+      },
+      {
+        "name": "request_time",
+        "type": "long",
+        "subtype": "",
+        "visible_name": "",
+        "remark": ""
+      },
+      {
+        "name": "request_type",
+        "type": "string",
+        "subtype": "",
+        "visible_name": "",
+        "remark": ""
+      },
+      {
+        "name": "referer_hit",
+        "type": "string",
+        "subtype": "",
+        "visible_name": "",
+        "remark": ""
+      },
+      {
+        "name": "notices",
+        "type": "string",
+        "subtype": "",
+        "visible_name": "",
+        "remark": ""
+      },
+      {
+        "name": "geo_city",
+        "type": "string",
+        "subtype": "",
+        "visible_name": "",
+        "remark": ""
+      }
+    ]
+  },
+  {
+    "app": "nebula",
+    "name": "ACCOUNT_LOGIN",
+    "visible_name": "账号-登录",
+    "remark": "账号-登录",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "HTTP_DYNAMIC"
+      }
+    ],
+    "type": "base",
+    "version": "1.0",
+    "properties": [
+      {
+        "name": "user_name",
+        "visible_name":"登陆用户名",
+        "type": "string",
+        "remark":"登陆用户名"
+      },
+      {
+        "name": "login_verification_type",
+        "visible_name":"登陆验证类型",
+        "type": "string",
+        "remark":"登陆验证类型"
+      },
+      {
+        "name": "password",
+        "visible_name":"登陆验证密码",
+        "type": "string",
+        "remark":"登陆验证密码(脱敏)"
+      },
+      {
+        "name": "captcha",
+        "visible_name":"图片验证码",
+        "type": "string",
+        "remark":"图片验证码"
+      },
+      {
+        "name": "result",
+        "visible_name":"登陆结果",
+        "type": "string",
+        "remark":"登陆结果"
+      },
+      {
+        "name": "remember_me",
+        "visible_name":"下次自动登陆",
+        "type": "string",
+        "remark":"下次自动登陆"
+      },
+      {
+        "name": "login_channel",
+        "visible_name":"登陆渠道",
+        "type": "string",
+        "remark":"登陆渠道"
+      }
+    ]
+  }
+]

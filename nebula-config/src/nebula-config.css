@@ -1,0 +1,114 @@
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  color: #B6CCE4;
+  background-color: #232836;
+  min-width: 1024px;
+}
+
+html {
+  font-family: 'Helvetica Neue', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', 'Microsoft Yahei', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-size: 15px;
+  line-height: 24px;
+}
+
+header {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 30px;
+  margin-bottom: 20px;
+}
+
+input {
+  background-color: #353D52;
+  color: #fff;
+  border: none;
+  box-sizing: border-box;
+  height: 24px;
+  line-height: 20px;
+  border-radius: 2px;
+  padding: 2px 8px;
+  outline: none;
+}
+input:focus {
+  border: 1px solid #22C3F7;
+}
+input:read-only {
+  color: #b6cce4;
+  background-color: #2c3345;
+  border: none;
+}
+.config-body {
+  width: 800px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+.config-text, .config-value {
+  margin-right: 12px;
+}
+.config-value {
+  width: 250px;
+}
+.add-config-item {
+  display: inline-block;
+  padding: 0 8px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.del-config {
+  height: 24px;
+  line-height: 24px;
+  width: 50px;
+  border: none;
+  outline: none;
+  background: #FF5E76;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 2px;
+  font-size: 12px;
+  vertical-align: middle;
+}
+.del-config:hover {
+  background-color: #cc4b5e;
+}
+.del-config:active {
+  background-color: #7f2f38;
+}
+
+.save-config {
+  height: 28px;
+  line-height: 28px;
+  width: 80px;
+  border: none;
+  outline: none;
+  background: #22C3F7;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 2px;
+  font-size: 14px;
+}
+.save-config:hover {
+  background-color: #1890B6;
+}
+
+.config-item  {
+  margin-bottom: 8px;
+}
+.config-item:last-child {
+  margin-bottom: 20px;
+}
+
+.save-info {
+  margin-top: 10px;
+}

@@ -1,0 +1,15 @@
+recursive-include test *.js *.html
+recursive-include vendor *.js *.css
+recursive-include css *.css
+recursive-include img *.gif *.png
+recursive-include font *.eot *.svg *.ttf *.woff
+recursive-include plugins *.js *.html
+recursive-include app *.js *.html
+include index.html
+include build.txt
+include config.js
+include config.sample.js
+include README.md
+include NOTICE.md
+include LICENSE.md
+

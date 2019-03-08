@@ -1,0 +1,1256 @@
+[
+  {
+    "app": "nebula",
+    "name": "HTTP_DYNAMIC",
+    "visible_name": "动态资源请求",
+    "remark": "动态资源请求",
+    "type": "base",
+    "version": "1.0",
+    "source": [
+    ],
+    "properties": [
+      {
+        "name": "c_ip",
+        "type": "string",
+        "visible_name": "客户端ip",
+        "remark": "客户端IP(默认取xforward最后一个)"
+      },
+      {
+        "name": "sid",
+        "type": "string",
+        "visible_name": "session会话ID",
+        "remark": "session会话ID"
+      },
+      {
+        "name": "uid",
+        "type": "string",
+        "visible_name": "用户ID",
+        "remark": "用户ID"
+      },
+      {
+        "name": "did",
+        "type": "string",
+        "visible_name": "设备ID",
+        "remark": "设备ID"
+      },
+      {
+        "name": "platform",
+        "type": "string",
+        "visible_name": "客户端类型",
+        "remark": "客户端类型"
+      },
+      {
+        "name": "page",
+        "type": "string",
+        "visible_name": "伪静态页面加工后地址",
+        "remark": "伪静态页面加工后地址(全部小写，去端口)"
+      },
+      {
+        "name": "c_port",
+        "type": "long",
+        "visible_name": "客户端端口",
+        "remark": "客户端端口"
+      },
+      {
+        "name": "c_bytes",
+        "type": "long",
+        "visible_name": "请求内容大小",
+        "remark": "请求内容大小"
+      },
+      {
+        "name": "c_body",
+        "type": "string",
+        "visible_name": "请求内容",
+        "remark": "请求内容(json和form表单脱敏)"
+      },
+      {
+        "name": "c_type",
+        "type": "string",
+        "visible_name": "请求内容类型",
+        "remark": "请求内容类型"
+      },
+      {
+        "name": "s_ip",
+        "type": "string",
+        "visible_name": "服务端IP",
+        "remark": "服务端IP"
+      },
+      {
+        "name": "s_port",
+        "type": "long",
+        "visible_name": "服务端端口",
+        "remark": "服务端端口"
+      },
+      {
+        "name": "s_bytes",
+        "type": "long",
+        "visible_name": "响应内容大小",
+        "remark": "响应内容大小"
+      },
+      {
+        "name": "s_body",
+        "type": "string",
+        "visible_name": "响应内容",
+        "remark": "响应内容(json和form表单脱敏)"
+      },
+      {
+        "name": "s_type",
+        "type": "string",
+        "visible_name": "响应内容类型",
+        "remark": "响应内容类型(全部小写)"
+      },
+      {
+        "name": "host",
+        "type": "string",
+        "visible_name": "主机地址",
+        "remark": "主机地址(全部小写，去端口)"
+      },
+      {
+        "name": "uri_stem",
+        "type": "string",
+        "visible_name": "请求路径",
+        "remark": "请求路径(全部小写)"
+      },
+      {
+        "name": "uri_query",
+        "type": "string",
+        "visible_name": "请求参数",
+        "remark": "请求参数(全部小写,脱敏)"
+      },
+      {
+        "name": "referer",
+        "type": "string",
+        "visible_name": "引用页面",
+        "remark": "引用页面(全部小写，去端口)"
+      },
+      {
+        "name": "method",
+        "type": "string",
+        "visible_name": "请求方法",
+        "remark": "请求方法(全部大写)"
+      },
+      {
+        "name": "status",
+        "type": "long",
+        "visible_name": "响应状态码",
+        "remark": "响应状态码"
+      },
+      {
+        "name": "cookie",
+        "type": "string",
+        "visible_name": "用户身份存储",
+        "remark": "用户身份存储"
+      },
+      {
+        "name": "useragent",
+        "type": "string",
+        "visible_name": "用户代理信息",
+        "remark": "用户代理信息(浏览器类型)"
+      },
+      {
+        "name": "xforward",
+        "type": "string",
+        "visible_name": "用户的xff header",
+        "remark": "用户的xff header，具体header名可配"
+      },
+      {
+        "name": "request_time",
+        "type": "long",
+        "visible_name": "请求消耗时间",
+        "remark": "请求消耗时间(毫秒精度)"
+      },
+      {
+        "name": "request_type",
+        "type": "string",
+        "visible_name": "请求类型",
+        "remark": "请求类型"
+      },
+      {
+        "name": "referer_hit",
+        "type": "string",
+        "visible_name": "referer是否命中",
+        "remark": "referer是否命中"
+      },
+      {
+        "name": "notices",
+        "type": "string",
+        "visible_name": "风险名单",
+        "remark": "风险名单"
+      },
+      {
+        "name": "geo_city",
+        "type": "string",
+        "visible_name": "地理位置",
+        "remark": "地理位置"
+      },
+      {
+        "name": "geo_province",
+        "type": "string",
+        "visible_name": "地理位置",
+        "remark": "地理位置"
+      }
+    ]
+  },
+  {
+    "app": "nebula",
+    "name": "HTTP_STATIC",
+    "visible_name": "静态资源请求",
+    "remark": "静态资源请求",
+    "type": "base",
+    "version": "1.0",
+    "source": [
+    ],
+    "properties": [
+      {
+        "name": "c_ip",
+        "type": "string",
+        "visible_name": "客户端ip",
+        "remark": "客户端IP(默认取xforward最后一个)"
+      },
+      {
+        "name": "sid",
+        "type": "string",
+        "visible_name": "session会话ID",
+        "remark": "session会话ID"
+      },
+      {
+        "name": "uid",
+        "type": "string",
+        "visible_name": "用户ID",
+        "remark": "用户ID"
+      },
+      {
+        "name": "did",
+        "type": "string",
+        "visible_name": "设备ID",
+        "remark": "设备ID"
+      },
+      {
+        "name": "platform",
+        "type": "string",
+        "visible_name": "客户端类型",
+        "remark": "客户端类型"
+      },
+      {
+        "name": "page",
+        "type": "string",
+        "visible_name": "伪静态页面加工后地址",
+        "remark": "伪静态页面加工后地址(全部小写，去端口)"
+      },
+      {
+        "name": "c_port",
+        "type": "long",
+        "visible_name": "客户端端口",
+        "remark": "客户端端口"
+      },
+      {
+        "name": "c_bytes",
+        "type": "long",
+        "visible_name": "请求内容大小",
+        "remark": "请求内容大小"
+      },
+      {
+        "name": "c_body",
+        "type": "string",
+        "visible_name": "请求内容",
+        "remark": "请求内容(json和form表单脱敏)"
+      },
+      {
+        "name": "c_type",
+        "type": "string",
+        "visible_name": "请求内容类型",
+        "remark": "请求内容类型"
+      },
+      {
+        "name": "s_ip",
+        "type": "string",
+        "visible_name": "服务端IP",
+        "remark": "服务端IP"
+      },
+      {
+        "name": "s_port",
+        "type": "long",
+        "visible_name": "服务端端口",
+        "remark": "服务端端口"
+      },
+      {
+        "name": "s_bytes",
+        "type": "long",
+        "visible_name": "响应内容大小",
+        "remark": "响应内容大小"
+      },
+      {
+        "name": "s_body",
+        "type": "string",
+        "visible_name": "响应内容",
+        "remark": "响应内容(json和form表单脱敏)"
+      },
+      {
+        "name": "s_type",
+        "type": "string",
+        "visible_name": "响应内容类型",
+        "remark": "响应内容类型(全部小写)"
+      },
+      {
+        "name": "host",
+        "type": "string",
+        "visible_name": "主机地址",
+        "remark": "主机地址(全部小写，去端口)"
+      },
+      {
+        "name": "uri_stem",
+        "type": "string",
+        "visible_name": "请求路径",
+        "remark": "请求路径(全部小写)"
+      },
+      {
+        "name": "uri_query",
+        "type": "string",
+        "visible_name": "请求参数",
+        "remark": "请求参数(全部小写,脱敏)"
+      },
+      {
+        "name": "referer",
+        "type": "string",
+        "visible_name": "引用页面",
+        "remark": "引用页面(全部小写，去端口)"
+      },
+      {
+        "name": "method",
+        "type": "string",
+        "visible_name": "请求方法",
+        "remark": "请求方法(全部大写)"
+      },
+      {
+        "name": "status",
+        "type": "long",
+        "visible_name": "响应状态码",
+        "remark": "响应状态码"
+      },
+      {
+        "name": "cookie",
+        "type": "string",
+        "visible_name": "用户身份存储",
+        "remark": "用户身份存储"
+      },
+      {
+        "name": "useragent",
+        "type": "string",
+        "visible_name": "用户代理信息",
+        "remark": "用户代理信息(浏览器类型)"
+      },
+      {
+        "name": "xforward",
+        "type": "string",
+        "visible_name": "用户的xff header",
+        "remark": "用户的xff header，具体header名可配"
+      },
+      {
+        "name": "request_time",
+        "type": "long",
+        "visible_name": "请求消耗时间",
+        "remark": "请求消耗时间(毫秒精度)"
+      },
+      {
+        "name": "request_type",
+        "type": "string",
+        "visible_name": "请求类型",
+        "remark": "请求类型"
+      },
+      {
+        "name": "referer_hit",
+        "type": "string",
+        "visible_name": "referer是否命中",
+        "remark": "referer是否命中"
+      },
+      {
+        "name": "notices",
+        "type": "string",
+        "visible_name": "风险名单",
+        "remark": "风险名单"
+      },
+      {
+        "name": "geo_city",
+        "type": "string",
+        "visible_name": "地理位置",
+        "remark": "地理位置"
+      },
+      {
+        "name": "geo_province",
+        "type": "string",
+        "visible_name": "地理位置",
+        "remark": "地理位置"
+      }
+    ]
+  },
+  {
+    "app": "nebula",
+    "name": "ACCOUNT_CERTIFICATION",
+    "visible_name": "账号-实名验证",
+    "remark": "账号-实名验证",
+    "type": "base",
+    "version": "1.0",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "HTTP_DYNAMIC"
+      }
+    ],
+    "properties": [
+      {
+        "name": "uid",
+        "type": "string",
+        "visible_name": "实名验证账号",
+        "remark": "实名验证账号"
+      },
+      {
+        "name": "person_id",
+        "type": "string",
+        "visible_name": "实名身份证ID",
+        "remark": "实名身份证ID"
+      },
+      {
+        "name": "user_name",
+        "type": "string",
+        "visible_name": "真实姓名",
+        "remark": "真实姓名"
+      },
+      {
+        "name": "result",
+        "type": "string",
+        "visible_name": "实名验证结果",
+        "remark": "实名验证结果"
+      }
+    ]
+  },
+  {
+    "app": "nebula",
+    "name": "ACCOUNT_LOGIN",
+    "visible_name": "账号-登录",
+    "remark": "账号-登录",
+    "type": "base",
+    "version": "1.0",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "HTTP_DYNAMIC"
+      }
+    ],
+    "properties": [
+      {
+        "name": "uid",
+        "type": "string",
+        "visible_name": "登陆用户名",
+        "remark": "登陆用户名"
+      },
+      {
+        "name": "login_verification_type",
+        "type": "string",
+        "visible_name": "登陆验证类型",
+        "remark": "登陆验证类型"
+      },
+      {
+        "name": "password",
+        "type": "string",
+        "visible_name": "登陆验证密码",
+        "remark": "登陆验证密码(脱敏)"
+      },
+      {
+        "name": "captcha",
+        "type": "string",
+        "visible_name": "图片验证码",
+        "remark": "图片验证码"
+      },
+      {
+        "name": "result",
+        "type": "string",
+        "visible_name": "登陆结果",
+        "remark": "登陆结果"
+      },
+      {
+        "name": "remember_me",
+        "type": "string",
+        "visible_name": "下次自动登陆",
+        "remark": "下次自动登陆"
+      },
+      {
+        "name": "login_channel",
+        "type": "string",
+        "visible_name": "登陆渠道",
+        "remark": "登陆渠道"
+      }
+    ]
+  },
+  {
+    "app": "nebula",
+    "name": "ACCOUNT_PW_CHANGE",
+    "visible_name": "账号-密码修改",
+    "remark": "账号-密码修改",
+    "type": "base",
+    "version": "1.0",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "HTTP_DYNAMIC"
+      }
+    ],
+    "properties": [
+      {
+        "name": "uid",
+        "type": "string",
+        "visible_name": "修改密码账号",
+        "remark": "修改密码账号"
+      },
+      {
+        "name": "old_password",
+        "type": "string",
+        "visible_name": "原密码",
+        "remark": "原密码(脱敏)"
+      },
+      {
+        "name": "new_password",
+        "type": "string",
+        "visible_name": "修改后密码",
+        "remark": "修改后密码(脱敏)"
+      },
+      {
+        "name": "verification_token",
+        "type": "string",
+        "visible_name": "验证凭证",
+        "remark": "验证凭证"
+      },
+      {
+        "name": "verification_token_type",
+        "type": "string",
+        "visible_name": "验证凭证类型",
+        "remark": "验证凭证类型"
+      },
+      {
+        "name": "captcha",
+        "type": "string",
+        "visible_name": "图片验证码",
+        "remark": "图片验证码"
+      },
+      {
+        "name": "result",
+        "type": "string",
+        "visible_name": "修改结果",
+        "remark": "修改结果"
+      }
+    ]
+  },
+  {
+    "app": "nebula",
+    "name": "ACCOUNT_REFERRALCODE_CREATE",
+    "visible_name": "账号-生成推荐码",
+    "remark": "账号-生成推荐码",
+    "type": "base",
+    "version": "1.0",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "HTTP_DYNAMIC"
+      }
+    ],
+    "properties": [
+      {
+        "name": "uid",
+        "type": "string",
+        "visible_name": "用户名",
+        "remark": "用户名"
+      },
+      {
+        "name": "referralcode",
+        "type": "string",
+        "visible_name": "生成ID",
+        "remark": "生成ID"
+      },
+      {
+        "name": "code_type",
+        "type": "string",
+        "visible_name": "生成ID的类型",
+        "remark": "生成ID的类型"
+      }
+    ]
+  },
+  {
+    "app": "nebula",
+    "name": "ACCOUNT_REGISTRATION",
+    "visible_name": "账号-注册",
+    "remark": "账号-注册",
+    "type": "base",
+    "version": "1.0",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "HTTP_DYNAMIC"
+      }
+    ],
+    "properties": [
+      {
+        "name": "uid",
+        "type": "string",
+        "visible_name": "注册名",
+        "remark": "注册名"
+      },
+      {
+        "name": "password",
+        "type": "string",
+        "visible_name": "注册密码",
+        "remark": "注册密码(脱敏)"
+      },
+      {
+        "name": "register_verification_token",
+        "type": "string",
+        "visible_name": "注册验证凭证",
+        "remark": "注册验证凭证"
+      },
+      {
+        "name": "register_verification_token_type",
+        "type": "string",
+        "visible_name": "注册验证凭证类型",
+        "remark": "注册验证凭证类型"
+      },
+      {
+        "name": "captcha",
+        "type": "string",
+        "visible_name": "图片验证码",
+        "remark": "图片验证码"
+      },
+      {
+        "name": "result",
+        "type": "string",
+        "visible_name": "注册结果",
+        "remark": "注册结果"
+      },
+      {
+        "name": "user_name",
+        "type": "string",
+        "visible_name": "注册真实姓名",
+        "remark": "注册真实姓名"
+      },
+      {
+        "name": "register_channel",
+        "type": "string",
+        "visible_name": "注册渠道",
+        "remark": "注册渠道"
+      },
+      {
+        "name": "invite_code",
+        "type": "string",
+        "visible_name": "注册邀请码",
+        "remark": "注册邀请码"
+      }
+    ]
+  },
+  {
+    "app": "nebula",
+    "name": "ACCOUNT_TOKEN_CHANGE",
+    "visible_name": "账号-安全凭证修改",
+    "remark": "账号-安全凭证修改",
+    "type": "base",
+    "version": "1.0",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "HTTP_DYNAMIC"
+      }
+    ],
+    "properties": [
+      {
+        "name": "uid",
+        "type": "string",
+        "visible_name": "修改凭证账号",
+        "remark": "修改凭证账号"
+      },
+      {
+        "name": "old_token",
+        "type": "string",
+        "visible_name": "原凭证",
+        "remark": "原凭证"
+      },
+      {
+        "name": "new_token",
+        "type": "string",
+        "visible_name": "新凭证",
+        "remark": "新凭证"
+      },
+      {
+        "name": "token_type",
+        "type": "string",
+        "visible_name": "凭证类型",
+        "remark": "凭证类型"
+      },
+      {
+        "name": "captcha",
+        "type": "string",
+        "visible_name": "图片验证码",
+        "remark": "图片验证码"
+      },
+      {
+        "name": "result",
+        "type": "string",
+        "visible_name": "修改结果",
+        "remark": "修改结果"
+      }
+    ]
+  },
+  {
+    "app": "nebula",
+    "name": "ACTIVITY_DO",
+    "visible_name": "营销-参加活动",
+    "remark": "营销-参加活动",
+    "type": "base",
+    "version": "1.0",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "HTTP_DYNAMIC"
+      }
+    ],
+    "properties": [
+      {
+        "name": "uid",
+        "type": "string",
+        "visible_name": "用户账号",
+        "remark": "用户账号"
+      },
+      {
+        "name": "activity_name",
+        "type": "string",
+        "visible_name": "活动名",
+        "remark": "活动名"
+      },
+      {
+        "name": "activity_type",
+        "type": "string",
+        "visible_name": "活动类型",
+        "remark": "活动类型"
+      },
+      {
+        "name": "activity_gain_count",
+        "type": "long",
+        "visible_name": "活动所得",
+        "remark": "活动所得"
+      },
+      {
+        "name": "activity_gain_amount",
+        "type": "long",
+        "visible_name": "活动所得",
+        "remark": "活动所得"
+      },
+      {
+        "name": "activity_pay_amount",
+        "type": "long",
+        "visible_name": "活动支出",
+        "remark": "活动支出"
+      },
+      {
+        "name": "user_name",
+        "type": "string",
+        "visible_name": "活动相关人员",
+        "remark": "活动相关人员"
+      },
+      {
+        "name": "result",
+        "type": "string",
+        "visible_name": "参与结果",
+        "remark": "参与结果"
+      }
+    ]
+  },
+  {
+    "app": "nebula",
+    "name": "HTTP_DYNAMIC_DELAY",
+    "visible_name": "http动态资源访问",
+    "remark": "http动态资源访问",
+    "type": "base",
+    "version": "1.0",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "HTTP_DYNAMIC"
+      }
+    ],
+    "properties": [
+      {
+        "name": "delay_strategy",
+        "type": "string",
+        "visible_name": "延迟策略",
+        "remark": "延迟策略"
+      }
+    ]
+  },
+  {
+    "app": "nebula",
+    "name": "ORDER_CANCEL",
+    "visible_name": "订单-取消",
+    "remark": "订单-取消",
+    "type": "base",
+    "version": "1.0",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "HTTP_DYNAMIC"
+      }
+    ],
+    "properties": [
+      {
+        "name": "order_id",
+        "type": "string",
+        "visible_name": "订单ID",
+        "remark": "订单ID"
+      },
+      {
+        "name": "uid",
+        "type": "string",
+        "visible_name": "取消订单账号",
+        "remark": "取消订单账号"
+      },
+      {
+        "name": "merchant",
+        "type": "string",
+        "visible_name": "订单对应商户",
+        "remark": "订单对应商户"
+      },
+      {
+        "name": "cancel_reason",
+        "type": "string",
+        "visible_name": "取消原因",
+        "remark": "取消原因"
+      },
+      {
+        "name": "transaction_id",
+        "type": "string",
+        "visible_name": "订单对应交易流水ID",
+        "remark": "订单对应交易流水ID"
+      },
+      {
+        "name": "result",
+        "type": "string",
+        "visible_name": "下单结果",
+        "remark": "下单结果"
+      }
+    ]
+  },
+  {
+    "app": "nebula",
+    "name": "ORDER_SUBMIT",
+    "visible_name": "订单-提交",
+    "remark": "订单-提交",
+    "type": "base",
+    "version": "1.0",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "HTTP_DYNAMIC"
+      }
+    ],
+    "properties": [
+      {
+        "name": "order_id",
+        "type": "string",
+        "visible_name": "订单ID",
+        "remark": "订单ID"
+      },
+      {
+        "name": "uid",
+        "type": "string",
+        "visible_name": "下单账号",
+        "remark": "下单账号"
+      },
+      {
+        "name": "product_id",
+        "type": "string",
+        "visible_name": "敏感或主要购买产品ID",
+        "remark": "敏感或主要购买产品ID"
+      },
+      {
+        "name": "product_type",
+        "type": "string",
+        "visible_name": "商品品类",
+        "remark": "商品品类"
+      },
+      {
+        "name": "product_attribute",
+        "type": "string",
+        "visible_name": "商品关键属性",
+        "remark": "商品关键属性"
+      },
+      {
+        "name": "product_count",
+        "type": "long",
+        "visible_name": "商品个数",
+        "remark": "商品个数"
+      },
+      {
+        "name": "product_total_count",
+        "type": "long",
+        "visible_name": "订单商品总个数",
+        "remark": "订单商品总个数"
+      },
+      {
+        "name": "merchant",
+        "type": "string",
+        "visible_name": "商户号",
+        "remark": "商户号"
+      },
+      {
+        "name": "order_money_amount",
+        "type": "long",
+        "visible_name": "订单现金金额",
+        "remark": "订单现金金额"
+      },
+      {
+        "name": "order_coupon_amount",
+        "type": "long",
+        "visible_name": "订单优惠券金额",
+        "remark": "订单优惠券金额"
+      },
+      {
+        "name": "order_point_amount",
+        "type": "long",
+        "visible_name": "订单积分数",
+        "remark": "订单积分数"
+      },
+      {
+        "name": "transaction_id",
+        "type": "string",
+        "visible_name": "订单对应交易流水ID",
+        "remark": "订单对应交易流水ID"
+      },
+      {
+        "name": "receiver_mobile",
+        "type": "string",
+        "visible_name": "收货人手机",
+        "remark": "收货人手机"
+      },
+      {
+        "name": "receiver_address_country",
+        "type": "string",
+        "visible_name": "收货人收货地国家",
+        "remark": "收货人收货地国家"
+      },
+      {
+        "name": "receiver_address_province",
+        "type": "string",
+        "visible_name": "收货人收货地省份",
+        "remark": "收货人收货地省份"
+      },
+      {
+        "name": "receiver_address_city",
+        "type": "string",
+        "visible_name": "收货人收货地城市",
+        "remark": "收货人收货地城市"
+      },
+      {
+        "name": "receiver_address_detail",
+        "type": "string",
+        "visible_name": "收货人收货地具体地址",
+        "remark": "收货人收货地具体地址"
+      },
+      {
+        "name": "user_name",
+        "type": "string",
+        "visible_name": "收货人姓名",
+        "remark": "收货人姓名"
+      },
+      {
+        "name": "result",
+        "type": "string",
+        "visible_name": "下单结果",
+        "remark": "下单结果"
+      }
+    ]
+  },
+  {
+    "app": "nebula",
+    "name": "TRANSACTION_BANKCRD_BIND",
+    "visible_name": "支付-绑卡",
+    "remark": "支付-绑卡",
+    "type": "base",
+    "version": "1.0",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "HTTP_DYNAMIC"
+      }
+    ],
+    "properties": [
+      {
+        "name": "uid",
+        "type": "string",
+        "visible_name": "用户账号",
+        "remark": "用户账号"
+      },
+      {
+        "name": "card_number",
+        "type": "string",
+        "visible_name": "银行卡号",
+        "remark": "银行卡号"
+      },
+      {
+        "name": "card_type",
+        "type": "string",
+        "visible_name": "银行卡类型",
+        "remark": "银行卡类型"
+      },
+      {
+        "name": "bank_type",
+        "type": "string",
+        "visible_name": "银行类型",
+        "remark": "银行类型"
+      },
+      {
+        "name": "result",
+        "type": "string",
+        "visible_name": "绑定结果",
+        "remark": "绑定结果"
+      },
+      {
+        "name": "card_realname",
+        "type": "string",
+        "visible_name": "银行卡姓名",
+        "remark": "银行卡姓名"
+      },
+      {
+        "name": "card_mobile",
+        "type": "string",
+        "visible_name": "银行卡验证手机",
+        "remark": "银行卡验证手机"
+      },
+      {
+        "name": "captcha",
+        "type": "string",
+        "visible_name": "图片验证码",
+        "remark": "图片验证码"
+      }
+    ]
+  },
+  {
+    "app": "nebula",
+    "name": "TRANSACTION_BANKCRD_UNBIND",
+    "visible_name": "支付-解绑",
+    "remark": "支付-解绑",
+    "type": "base",
+    "version": "1.0",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "HTTP_DYNAMIC"
+      }
+    ],
+    "properties": [
+      {
+        "name": "uid",
+        "type": "string",
+        "visible_name": "用户账号",
+        "remark": "用户账号"
+      },
+      {
+        "name": "card_number",
+        "type": "string",
+        "visible_name": "银行卡号",
+        "remark": "银行卡号"
+      },
+      {
+        "name": "card_type",
+        "type": "string",
+        "visible_name": "银行卡类型",
+        "remark": "银行卡类型"
+      },
+      {
+        "name": "bank_type",
+        "type": "string",
+        "visible_name": "银行类型",
+        "remark": "银行类型"
+      },
+      {
+        "name": "result",
+        "type": "string",
+        "visible_name": "解绑结果",
+        "remark": "解绑结果"
+      },
+      {
+        "name": "captcha",
+        "type": "string",
+        "visible_name": "图片验证码",
+        "remark": "图片验证码"
+      }
+    ]
+  },
+  {
+    "app": "nebula",
+    "name": "TRANSACTION_DEPOSIT",
+    "visible_name": "支付-充值",
+    "remark": "支付-充值",
+    "type": "base",
+    "version": "1.0",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "HTTP_DYNAMIC"
+      }
+    ],
+    "properties": [
+      {
+        "name": "uid",
+        "type": "string",
+        "visible_name": "用户账户",
+        "remark": "用户账户"
+      },
+      {
+        "name": "transaction_id",
+        "type": "string",
+        "visible_name": "充值流水号",
+        "remark": "充值流水号"
+      },
+      {
+        "name": "deposit_amount",
+        "type": "long",
+        "visible_name": "充值金额",
+        "remark": "充值金额"
+      },
+      {
+        "name": "card_number",
+        "type": "string",
+        "visible_name": "充值卡号",
+        "remark": "充值卡号"
+      },
+      {
+        "name": "user_name",
+        "type": "string",
+        "visible_name": "交易相关用户",
+        "remark": "交易相关用户(授予人)"
+      },
+      {
+        "name": "account_balance_before",
+        "type": "double",
+        "visible_name": "充值前账户余额",
+        "remark": "充值前账户余额"
+      },
+      {
+        "name": "result",
+        "type": "string",
+        "visible_name": "充值结果",
+        "remark": "充值结果"
+      }
+    ]
+  },
+  {
+    "app": "nebula",
+    "name": "TRANSACTION_ESCROW",
+    "visible_name": "支付-第三方支付",
+    "remark": "支付-第三方支付",
+    "type": "base",
+    "version": "1.0",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "HTTP_DYNAMIC"
+      }
+    ],
+    "properties": [
+      {
+        "name": "uid",
+        "type": "string",
+        "visible_name": "用户账户",
+        "remark": "用户账户"
+      },
+      {
+        "name": "transaction_id",
+        "type": "string",
+        "visible_name": "第三方支付流水号",
+        "remark": "第三方支付流水号"
+      },
+      {
+        "name": "escrow_type",
+        "type": "string",
+        "visible_name": "第三方支付平台类型",
+        "remark": "第三方支付平台类型"
+      },
+      {
+        "name": "escrow_account",
+        "type": "string",
+        "visible_name": "第三方支付账号",
+        "remark": "第三方支付账号"
+      },
+      {
+        "name": "pay_amount",
+        "type": "long",
+        "visible_name": "支付金额",
+        "remark": "支付金额"
+      },
+      {
+        "name": "result",
+        "type": "string",
+        "visible_name": "支付结果",
+        "remark": "支付结果"
+      }
+    ]
+  },
+  {
+    "app": "nebula",
+    "name": "TRANSACTION_WITHDRAW",
+    "visible_name": "支付-取现",
+    "remark": "支付-取现",
+    "type": "base",
+    "version": "1.0",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "HTTP_DYNAMIC"
+      }
+    ],
+    "properties": [
+      {
+        "name": "uid",
+        "type": "string",
+        "visible_name": "用户账户",
+        "remark": "用户账户"
+      },
+      {
+        "name": "transaction_id",
+        "type": "string",
+        "visible_name": "取现或消费流水号",
+        "remark": "取现或消费流水号"
+      },
+      {
+        "name": "withdraw_amount",
+        "type": "long",
+        "visible_name": "取出或消费金额",
+        "remark": "取出或消费金额"
+      },
+      {
+        "name": "withdraw_type",
+        "type": "string",
+        "visible_name": "取出类型，消费／提现",
+        "remark": "取出类型，消费／提现"
+      },
+      {
+        "name": "card_number",
+        "type": "string",
+        "visible_name": "被充值卡号",
+        "remark": "被充值卡号"
+      },
+      {
+        "name": "user_name",
+        "type": "string",
+        "visible_name": "交易相关用户",
+        "remark": "交易相关用户"
+      },
+      {
+        "name": "account_balance_before",
+        "type": "long",
+        "visible_name": "账户取现／消费前余额",
+        "remark": "账户取现／消费前余额"
+      },
+      {
+        "name": "result",
+        "type": "string",
+        "visible_name": "取现结果",
+        "remark": "取现结果"
+      }
+    ]
+  }
+]

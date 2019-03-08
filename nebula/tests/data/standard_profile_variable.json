@@ -1,0 +1,755 @@
+[
+  {
+    "module": "profile",
+    "app": "nebula",
+    "name": "ip__visit_distinct_uid__1h__profile",
+    "remark": "ip每小时uid",
+    "visible_name": "ip每小时uid",
+    "status": "enable",
+    "type": "aggregate",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "ACCOUNT_LOGIN"
+      }
+    ],
+    "period": {
+      "type": "hourly",
+      "value": "1"
+    },
+    "function": {
+      "method": "distinct",
+      "object": "uid"
+    },
+    "groupbykeys": [
+      "c_ip"
+    ]
+  },
+  {
+    "module": "profile",
+    "app": "nebula",
+    "name": "uid__account_login_count_succ__profile",
+    "remark": "用户登录成功次数",
+    "visible_name": "用户登录成功次数[total]",
+    "status": "enable",
+    "type": "aggregate",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "ACCOUNT_LOGIN"
+      }
+    ],
+    "filter": {
+      "object": "result",
+      "operation": "==",
+      "value": "T",
+      "type": "simple"
+    },
+    "period": {
+      "type": "ever",
+      "value": ""
+    },
+    "function": {
+      "method": "count",
+      "object": ""
+    },
+    "groupbykeys": [
+      "uid"
+    ]
+  },
+  {
+    "module": "profile",
+    "app": "nebula",
+    "name": "uid__account_login_distinct_did__1h_profile",
+    "remark": "账号登陆成功did按小时去重列表",
+    "visible_name": "账号登陆成功did按小时去重列表",
+    "status": "enable",
+    "type": "aggregate",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "ACCOUNT_LOGIN"
+      }
+    ],
+    "filter": {
+      "object": "result",
+      "operation": "==",
+      "value": "T",
+      "type": "simple"
+    },
+    "period": {
+      "type": "hourly",
+      "value": "1"
+    },
+    "function": {
+      "method": "distinct",
+      "object": "did"
+    },
+    "groupbykeys": [
+      "uid"
+    ]
+  },
+  {
+    "module": "profile",
+    "app": "nebula",
+    "name": "uid__account_login_geocity_last10__profile",
+    "remark": "账号最近10条登录城市",
+    "visible_name": "账号最近10条登录城市",
+    "status": "enable",
+    "type": "aggregate",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "ACCOUNT_LOGIN"
+      }
+    ],
+    "period": {
+      "type": "ever",
+      "value": ""
+    },
+    "function": {
+      "method": "lastn",
+      "object": "geo_city",
+      "param": "10"
+    },
+    "groupbykeys": [
+      "uid"
+    ]
+  },
+  {
+    "module": "profile",
+    "app": "nebula",
+    "name": "uid__account_login_ip_last10__profile",
+    "remark": "账号最近10条登录IP",
+    "visible_name": "账号最近10条登录IP",
+    "status": "enable",
+    "type": "aggregate",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "ACCOUNT_LOGIN"
+      }
+    ],
+    "period": {
+      "type": "ever",
+      "value": ""
+    },
+    "function": {
+      "method": "lastn",
+      "object": "c_ip",
+      "param": "10"
+    },
+    "groupbykeys": [
+      "uid"
+    ]
+  },
+  {
+    "module": "profile",
+    "app": "nebula",
+    "name": "uid__account_login_timestamp_last10__profile",
+    "remark": "账号最近10条登录时间",
+    "visible_name": "账号最近10条登录时间",
+    "status": "enable",
+    "type": "aggregate",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "ACCOUNT_LOGIN"
+      }
+    ],
+    "period": {
+      "type": "ever",
+      "value": ""
+    },
+    "function": {
+      "method": "lastn",
+      "object": "timestamp",
+      "param": "10"
+    },
+    "groupbykeys": [
+      "uid"
+    ]
+  },
+  {
+    "module": "profile",
+    "app": "nebula",
+    "name": "uid_did__account_login_count_succ__profile",
+    "remark": "账号登录成功did去重列表，并按照次数自增",
+    "visible_name": "账号登录成功did去重列表，并按照次数自增",
+    "status": "enable",
+    "type": "aggregate",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "ACCOUNT_LOGIN"
+      }
+    ],
+    "filter": {
+      "object": "result",
+      "operation": "==",
+      "value": "T",
+      "type": "simple"
+    },
+    "period": {
+      "type": "ever",
+      "value": ""
+    },
+    "function": {
+      "method": "group_count",
+      "object": "did"
+    },
+    "groupbykeys": [
+      "uid"
+    ]
+  },
+  {
+    "module": "profile",
+    "app": "nebula",
+    "name": "uid__account_register_timestamp__profile",
+    "remark": "用户注册时间",
+    "visible_name": "用户注册时间",
+    "status": "enable",
+    "type": "aggregate",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "ACCOUNT_REGISTRATION"
+      }
+    ],
+    "filter": {
+      "type": "and",
+      "condition": [
+        {
+          "object": "result",
+          "operation": "==",
+          "value": "T",
+          "type": "simple"
+        }
+      ]
+    },
+    "period": {
+      "type": "ever",
+      "value": ""
+    },
+    "function": {
+      "method": "last",
+      "object": "timestamp"
+    },
+    "groupbykeys": [
+      "uid"
+    ]
+  },
+  {
+    "module": "profile",
+    "app": "nebula",
+    "name": "uid__registration__account__ip__profile",
+    "remark": "用户注册时的ip",
+    "visible_name": "",
+    "status": "enable",
+    "type": "aggregate",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "ACCOUNT_REGISTRATION"
+      }
+    ],
+    "filter": {
+      "type": "and",
+      "condition": [
+        {
+          "object": "result",
+          "operation": "==",
+          "value": "T",
+          "type": "simple"
+        }
+      ]
+    },
+    "period": {
+      "type": "ever",
+      "value": ""
+    },
+    "function": {
+      "method": "last",
+      "object": "c_ip"
+    },
+    "groupbykeys": [
+      "uid"
+    ]
+  },
+  {
+    "module": "profile",
+    "app": "nebula",
+    "name": "uid__registration__account__mail__profile",
+    "remark": "用户注册邮箱",
+    "visible_name": "用户注册邮箱",
+    "status": "enable",
+    "type": "aggregate",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "ACCOUNT_REGISTRATION"
+      }
+    ],
+    "filter": {
+      "type": "and",
+      "condition": [
+        {
+          "object": "result",
+          "operation": "==",
+          "value": "T",
+          "type": "simple"
+        },
+        {
+          "object": "register_verification_token_type",
+          "operation": "==",
+          "value": "email",
+          "type": "simple"
+        }
+      ]
+    },
+    "period": {
+      "type": "ever",
+      "value": ""
+    },
+    "function": {
+      "method": "last",
+      "object": "register_verification_token"
+    },
+    "groupbykeys": [
+      "uid"
+    ]
+  },
+  {
+    "module": "profile",
+    "app": "nebula",
+    "name": "uid__registration__account__mobile__profile",
+    "remark": "用户注册手机",
+    "visible_name": "用户注册手机",
+    "status": "enable",
+    "type": "aggregate",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "ACCOUNT_REGISTRATION"
+      }
+    ],
+    "filter": {
+      "type": "and",
+      "condition": [
+        {
+          "object": "result",
+          "operation": "==",
+          "value": "T",
+          "type": "simple"
+        },
+        {
+          "object": "register_verification_token_type",
+          "operation": "==",
+          "value": "mobile",
+          "type": "simple"
+        }
+      ]
+    },
+    "period": {
+      "type": "ever",
+      "value": ""
+    },
+    "function": {
+      "method": "last",
+      "object": "register_verification_token"
+    },
+    "groupbykeys": [
+      "uid"
+    ]
+  },
+  {
+    "module": "profile",
+    "app": "nebula",
+    "name": "uid__registration__account__username__profile",
+    "remark": "用户注册用户名",
+    "visible_name": "用户注册用户名",
+    "status": "enable",
+    "type": "aggregate",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "ACCOUNT_REGISTRATION"
+      }
+    ],
+    "filter": {
+      "type": "and",
+      "condition": [
+        {
+          "object": "result",
+          "operation": "==",
+          "value": "T",
+          "type": "simple"
+        }
+      ]
+    },
+    "period": {
+      "type": "ever",
+      "value": ""
+    },
+    "function": {
+      "method": "last",
+      "object": "user_name"
+    },
+    "groupbykeys": [
+      "uid"
+    ]
+  },
+  {
+    "module": "profile",
+    "app": "nebula",
+    "name": "uid__account_token_change_mail__profile",
+    "remark": "帐号修改的邮箱",
+    "visible_name": "帐号修改的邮箱",
+    "status": "enable",
+    "type": "aggregate",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "ACCOUNT_TOKEN_CHANGE"
+      }
+    ],
+    "filter": {
+      "type": "and",
+      "condition": [
+        {
+          "object": "result",
+          "operation": "==",
+          "value": "T",
+          "type": "simple"
+        },
+        {
+          "object": "token_type",
+          "operation": "==",
+          "value": "email",
+          "type": "simple"
+        }
+      ]
+    },
+    "period": {
+      "type": "ever",
+      "value": ""
+    },
+    "function": {
+      "method": "last",
+      "object": "new_token"
+    },
+    "groupbykeys": [
+      "uid"
+    ]
+  },
+  {
+    "module": "profile",
+    "app": "nebula",
+    "name": "uid__account_token_change_mail_count__profile",
+    "remark": "账号累计修改邮箱次数",
+    "visible_name": "账号累计修改邮箱次数",
+    "status": "enable",
+    "type": "aggregate",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "ACCOUNT_TOKEN_CHANGE"
+      }
+    ],
+    "filter": {
+      "type": "and",
+      "condition": [
+        {
+          "object": "result",
+          "operation": "==",
+          "value": "T",
+          "type": "simple"
+        },
+        {
+          "object": "token_type",
+          "operation": "==",
+          "value": "email",
+          "type": "simple"
+        }
+      ]
+    },
+    "period": {
+      "type": "ever",
+      "value": ""
+    },
+    "function": {
+      "method": "count",
+      "object": ""
+    },
+    "groupbykeys": [
+      "uid"
+    ]
+  },
+  {
+    "module": "profile",
+    "app": "nebula",
+    "name": "uid__account_token_change_mail_last_timestamp__profile",
+    "remark": "账号最近修改邮箱时间",
+    "visible_name": "账号最近修改邮箱时间",
+    "status": "enable",
+    "type": "aggregate",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "ACCOUNT_TOKEN_CHANGE"
+      }
+    ],
+    "filter": {
+      "type": "and",
+      "condition": [
+        {
+          "object": "result",
+          "operation": "==",
+          "value": "T",
+          "type": "simple"
+        },
+        {
+          "object": "token_type",
+          "operation": "==",
+          "value": "email",
+          "type": "simple"
+        }
+      ]
+    },
+    "period": {
+      "type": "ever",
+      "value": ""
+    },
+    "function": {
+      "method": "last",
+      "object": "timestamp"
+    },
+    "groupbykeys": [
+      "uid"
+    ]
+  },
+  {
+    "module": "profile",
+    "app": "nebula",
+    "name": "uid__account_token_change_mail_timestamp__profile",
+    "remark": "帐号修改的邮箱的时间",
+    "visible_name": "",
+    "status": "enable",
+    "type": "aggregate",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "ACCOUNT_TOKEN_CHANGE"
+      }
+    ],
+    "filter": {
+      "type": "and",
+      "condition": [
+        {
+          "object": "result",
+          "operation": "==",
+          "value": "T",
+          "type": "simple"
+        },
+        {
+          "object": "token_type",
+          "operation": "==",
+          "value": "email",
+          "type": "simple"
+        }
+      ]
+    },
+    "period": {
+      "type": "ever",
+      "value": ""
+    },
+    "function": {
+      "method": "last",
+      "object": "timestamp"
+    },
+    "groupbykeys": [
+      "uid"
+    ]
+  },
+  {
+    "module": "profile",
+    "app": "nebula",
+    "name": "uid__account_token_change_mobile__profile",
+    "remark": "帐号修改的手机号",
+    "visible_name": "帐号修改的手机号",
+    "status": "enable",
+    "type": "aggregate",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "ACCOUNT_TOKEN_CHANGE"
+      }
+    ],
+    "filter": {
+      "type": "and",
+      "condition": [
+        {
+          "object": "result",
+          "operation": "==",
+          "value": "T",
+          "type": "simple"
+        },
+        {
+          "object": "token_type",
+          "operation": "==",
+          "value": "mobile",
+          "type": "simple"
+        }
+      ]
+    },
+    "period": {
+      "type": "ever",
+      "value": ""
+    },
+    "function": {
+      "method": "last",
+      "object": "new_token"
+    },
+    "groupbykeys": [
+      "uid"
+    ]
+  },
+  {
+    "module": "profile",
+    "app": "nebula",
+    "name": "uid__account_token_change_mobile_count__profile",
+    "remark": "账号修改手机号次数",
+    "visible_name": "账号修改手机号次数",
+    "status": "enable",
+    "type": "aggregate",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "ACCOUNT_TOKEN_CHANGE"
+      }
+    ],
+    "filter": {
+      "type": "and",
+      "condition": [
+        {
+          "object": "result",
+          "operation": "==",
+          "value": "T",
+          "type": "simple"
+        },
+        {
+          "object": "token_type",
+          "operation": "==",
+          "value": "mobile",
+          "type": "simple"
+        }
+      ]
+    },
+    "period": {
+      "type": "ever",
+      "value": ""
+    },
+    "function": {
+      "method": "count",
+      "object": ""
+    },
+    "groupbykeys": [
+      "uid"
+    ]
+  },
+  {
+    "module": "profile",
+    "app": "nebula",
+    "name": "uid__account_token_change_mobile_timestamp__profile",
+    "remark": "帐号修改的手机号时间",
+    "visible_name": "帐号修改的手机号时间",
+    "status": "enable",
+    "type": "aggregate",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "ACCOUNT_TOKEN_CHANGE"
+      }
+    ],
+    "filter": {
+      "type": "and",
+      "condition": [
+        {
+          "object": "result",
+          "operation": "==",
+          "value": "T",
+          "type": "simple"
+        },
+        {
+          "object": "token_type",
+          "operation": "==",
+          "value": "mobile",
+          "type": "simple"
+        }
+      ]
+    },
+    "period": {
+      "type": "ever",
+      "value": ""
+    },
+    "function": {
+      "method": "last",
+      "object": "timestamp"
+    },
+    "groupbykeys": [
+      "uid"
+    ]
+  },
+  {
+    "module": "profile",
+    "app": "nebula",
+    "name": "uid__transaction_withdraw_sum_withdraw_amount__1h__profile",
+    "remark": "账号每小时消费金额",
+    "visible_name": "账号每小时消费金额",
+    "status": "enable",
+    "type": "aggregate",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "TRANSACTION_WITHDRAW"
+      }
+    ],
+    "period": {
+      "type": "hourly",
+      "value": "1"
+    },
+    "function": {
+      "method": "sum",
+      "object": "withdraw_amount"
+    },
+    "groupbykeys": [
+      "uid"
+    ]
+  },
+  {
+    "module": "profile",
+    "app": "nebula",
+    "name": "uid__account_login_distinct_count_did_succ__1d__profile",
+    "remark": "用户当天登录成功不同did个数",
+    "visible_name": "用户登录成功不同did个数[1d]",
+    "status": "enable",
+    "type": "aggregate",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "uid__account_login_distinct_did__1h_profile"
+      }
+    ],
+    "period": {
+      "type": "today",
+      "value": "1"
+    },
+    "function": {
+      "method": "distinct_count",
+      "object": "value"
+    },
+    "groupbykeys": [
+      "uid"
+    ]
+  }
+]

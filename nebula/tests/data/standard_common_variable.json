@@ -1,0 +1,364 @@
+[
+  {
+    "module": "base",
+    "app": "nebula",
+    "name": "ACCOUNT_CERTIFICATION",
+    "remark": "账号-实名验证",
+    "visible_name": "账号-实名验证",
+    "status": "enable",
+    "type": "event",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "ACCOUNT_CERTIFICATION"
+      }
+    ],
+    "period": {
+    }
+  },
+  {
+    "module": "base",
+    "app": "nebula",
+    "name": "ACCOUNT_LOGIN",
+    "remark": "账号-登录",
+    "visible_name": "账号-登录",
+    "status": "enable",
+    "type": "event",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "ACCOUNT_LOGIN"
+      }
+    ],
+    "period": {
+    }
+  },
+  {
+    "module": "base",
+    "app": "nebula",
+    "name": "ACCOUNT_PW_CHANGE",
+    "remark": "账号-密码修改",
+    "visible_name": "账号-密码修改",
+    "status": "enable",
+    "type": "event",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "ACCOUNT_PW_CHANGE"
+      }
+    ],
+    "period": {
+    }
+  },
+  {
+    "module": "base",
+    "app": "nebula",
+    "name": "ACCOUNT_REFERRALCODE_CREATE",
+    "remark": "账号-生成推荐码",
+    "visible_name": "账号-生成推荐码",
+    "status": "enable",
+    "type": "event",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "ACCOUNT_REFERRALCODE_CREATE"
+      }
+    ],
+    "period": {
+    }
+  },
+  {
+    "module": "base",
+    "app": "nebula",
+    "name": "ACCOUNT_REGISTRATION",
+    "remark": "账号-注册",
+    "visible_name": "账号-注册",
+    "status": "enable",
+    "type": "event",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "ACCOUNT_REGISTRATION"
+      }
+    ],
+    "period": {
+    }
+  },
+  {
+    "module": "base",
+    "app": "nebula",
+    "name": "ACCOUNT_TOKEN_CHANGE",
+    "remark": "账号-安全凭证修改",
+    "visible_name": "账号-安全凭证修改",
+    "status": "enable",
+    "type": "event",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "ACCOUNT_TOKEN_CHANGE"
+      }
+    ],
+    "period": {
+    }
+  },
+  {
+    "module": "base",
+    "app": "nebula",
+    "name": "ACTIVITY_DO",
+    "remark": "营销-参加活动",
+    "visible_name": "营销-参加活动",
+    "status": "enable",
+    "type": "event",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "ACTIVITY_DO"
+      }
+    ],
+    "period": {
+    }
+  },
+  {
+    "module": "base",
+    "app": "nebula",
+    "name": "HTTP_DYNAMIC",
+    "remark": "动态资源请求",
+    "visible_name": "动态资源请求",
+    "status": "enable",
+    "type": "event",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "HTTP_DYNAMIC"
+      }
+    ],
+    "period": {
+    }
+  },
+  {
+    "module": "base",
+    "app": "nebula",
+    "name": "HTTP_DYNAMIC_DELAY",
+    "remark": "http动态资源访问",
+    "visible_name": "http动态资源访问",
+    "status": "enable",
+    "type": "event",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "HTTP_DYNAMIC_DELAY"
+      }
+    ],
+    "period": {
+    }
+  },
+  {
+    "module": "base",
+    "app": "nebula",
+    "name": "HTTP_STATIC",
+    "remark": "静态资源请求",
+    "visible_name": "静态资源请求",
+    "status": "enable",
+    "type": "event",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "HTTP_STATIC"
+      }
+    ],
+    "period": {
+    }
+  },
+  {
+    "module": "base",
+    "app": "nebula",
+    "name": "ORDER_CANCEL",
+    "remark": "订单-取消",
+    "visible_name": "订单-取消",
+    "status": "enable",
+    "type": "event",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "ORDER_CANCEL"
+      }
+    ],
+    "period": {
+    }
+  },
+  {
+    "module": "base",
+    "app": "nebula",
+    "name": "ORDER_SUBMIT",
+    "remark": "订单-提交",
+    "visible_name": "订单-提交",
+    "status": "enable",
+    "type": "event",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "ORDER_SUBMIT"
+      }
+    ],
+    "period": {
+    }
+  },
+  {
+    "module": "base",
+    "app": "nebula",
+    "name": "TRANSACTION_BANKCRD_BIND",
+    "remark": "支付-绑卡",
+    "visible_name": "支付-绑卡",
+    "status": "enable",
+    "type": "event",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "TRANSACTION_BANKCRD_BIND"
+      }
+    ],
+    "period": {
+    }
+  },
+  {
+    "module": "base",
+    "app": "nebula",
+    "name": "TRANSACTION_BANKCRD_UNBIND",
+    "remark": "支付-解绑",
+    "visible_name": "支付-解绑",
+    "status": "enable",
+    "type": "event",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "TRANSACTION_BANKCRD_UNBIND"
+      }
+    ],
+    "period": {
+    }
+  },
+  {
+    "module": "base",
+    "app": "nebula",
+    "name": "TRANSACTION_DEPOSIT",
+    "remark": "支付-充值",
+    "visible_name": "支付-充值",
+    "status": "enable",
+    "type": "event",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "TRANSACTION_DEPOSIT"
+      }
+    ],
+    "period": {
+    }
+  },
+  {
+    "module": "base",
+    "app": "nebula",
+    "name": "TRANSACTION_ESCROW",
+    "remark": "支付-第三方支付",
+    "visible_name": "支付-第三方支付",
+    "status": "",
+    "type": "event",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "TRANSACTION_ESCROW"
+      }
+    ],
+    "period": {
+    }
+  },
+  {
+    "module": "base",
+    "app": "nebula",
+    "name": "TRANSACTION_WITHDRAW",
+    "remark": "支付-取现",
+    "visible_name": "支付-取现",
+    "status": "enable",
+    "type": "event",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "TRANSACTION_WITHDRAW"
+      }
+    ],
+    "period": {
+    }
+  },
+  {
+    "module": "base",
+    "app": "nebula",
+    "name": "HTTP_CLICK",
+    "remark": "点击",
+    "visible_name": "点击",
+    "status": "enable",
+    "type": "filter",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "HTTP_DYNAMIC"
+      }
+    ],
+    "filter": {
+      "type": "or",
+      "condition": [
+        {
+          "object": "method",
+          "operation": "==",
+          "value": "POST",
+          "type": "simple"
+        },
+        {
+          "type": "and",
+          "condition": [
+            {
+              "object": "method",
+              "operation": "==",
+              "value": "GET",
+              "type": "simple"
+            },
+            {
+              "object": "s_type",
+              "operation": "contains",
+              "value": "text/html",
+              "type": "simple"
+            },
+            {
+              "object": "s_bytes",
+              "operation": ">",
+              "value": "1000",
+              "type": "simple"
+            }
+          ]
+        }
+      ]
+    },
+    "period": {
+    }
+  },
+  {
+    "module": "base",
+    "app": "nebula",
+    "name": "HTTP_INCIDENT",
+    "remark": "风险事件",
+    "visible_name": "风险事件",
+    "status": "enable",
+    "type": "filter",
+    "source": [
+      {
+        "app": "nebula",
+        "name": "HTTP_DYNAMIC"
+      }
+    ],
+    "filter": {
+      "object": "notices",
+      "operation": "!=",
+      "type": "simple"
+    },
+    "period": {
+    }
+  }
+]

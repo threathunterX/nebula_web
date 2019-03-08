@@ -1,0 +1,245 @@
+[
+  {
+    "remark": "http动态资源访问",
+    "expire": -1,
+    "name": "HTTP_DYNAMIC",
+    "srcVariableID": [],
+    "derived": false,
+    "app": "nebula",
+    "type": "base",
+    "properties": [
+      {
+        "identifier": [
+          "nebula",
+          "HTTP_DYNAMIC"
+        ],
+        "type": "string",
+        "name": "c_ip"
+      },
+      {
+        "identifier": [
+          "nebula",
+          "HTTP_DYNAMIC"
+        ],
+        "type": "string",
+        "name": "sid"
+      },
+      {
+        "identifier": [
+          "nebula",
+          "HTTP_DYNAMIC"
+        ],
+        "type": "string",
+        "name": "uid"
+      },
+      {
+        "identifier": [
+          "nebula",
+          "HTTP_DYNAMIC"
+        ],
+        "type": "string",
+        "name": "did"
+      },
+      {
+        "identifier": [
+          "nebula",
+          "HTTP_DYNAMIC"
+        ],
+        "type": "string",
+        "name": "platform"
+      },
+      {
+        "identifier": [
+          "nebula",
+          "HTTP_DYNAMIC"
+        ],
+        "type": "string",
+        "name": "page"
+      },
+      {
+        "identifier": [
+          "nebula",
+          "HTTP_DYNAMIC"
+        ],
+        "type": "long",
+        "name": "c_port"
+      },
+      {
+        "identifier": [
+          "nebula",
+          "HTTP_DYNAMIC"
+        ],
+        "type": "long",
+        "name": "c_bytes"
+      },
+      {
+        "identifier": [
+          "nebula",
+          "HTTP_DYNAMIC"
+        ],
+        "type": "string",
+        "name": "c_body"
+      },
+      {
+        "identifier": [
+          "nebula",
+          "HTTP_DYNAMIC"
+        ],
+        "type": "string",
+        "name": "c_type"
+      },
+      {
+        "identifier": [
+          "nebula",
+          "HTTP_DYNAMIC"
+        ],
+        "type": "string",
+        "name": "s_ip"
+      },
+      {
+        "identifier": [
+          "nebula",
+          "HTTP_DYNAMIC"
+        ],
+        "type": "long",
+        "name": "s_port"
+      },
+      {
+        "identifier": [
+          "nebula",
+          "HTTP_DYNAMIC"
+        ],
+        "type": "long",
+        "name": "s_bytes"
+      },
+      {
+        "identifier": [
+          "nebula",
+          "HTTP_DYNAMIC"
+        ],
+        "type": "string",
+        "name": "s_body"
+      },
+      {
+        "identifier": [
+          "nebula",
+          "HTTP_DYNAMIC"
+        ],
+        "type": "string",
+        "name": "s_type"
+      },
+      {
+        "identifier": [
+          "nebula",
+          "HTTP_DYNAMIC"
+        ],
+        "type": "string",
+        "name": "host"
+      },
+      {
+        "identifier": [
+          "nebula",
+          "HTTP_DYNAMIC"
+        ],
+        "type": "string",
+        "name": "uri_stem"
+      },
+      {
+        "identifier": [
+          "nebula",
+          "HTTP_DYNAMIC"
+        ],
+        "type": "string",
+        "name": "uri_query"
+      },
+      {
+        "identifier": [
+          "nebula",
+          "HTTP_DYNAMIC"
+        ],
+        "type": "string",
+        "name": "referer"
+      },
+      {
+        "identifier": [
+          "nebula",
+          "HTTP_DYNAMIC"
+        ],
+        "type": "string",
+        "name": "method"
+      },
+      {
+        "identifier": [
+          "nebula",
+          "HTTP_DYNAMIC"
+        ],
+        "type": "long",
+        "name": "status"
+      },
+      {
+        "identifier": [
+          "nebula",
+          "HTTP_DYNAMIC"
+        ],
+        "type": "string",
+        "name": "cookie"
+      },
+      {
+        "identifier": [
+          "nebula",
+          "HTTP_DYNAMIC"
+        ],
+        "type": "string",
+        "name": "useragent"
+      },
+      {
+        "identifier": [
+          "nebula",
+          "HTTP_DYNAMIC"
+        ],
+        "type": "string",
+        "name": "xforward"
+      },
+      {
+        "identifier": [
+          "nebula",
+          "HTTP_DYNAMIC"
+        ],
+        "type": "long",
+        "name": "request_time"
+      },
+      {
+        "identifier": [
+          "nebula",
+          "HTTP_DYNAMIC"
+        ],
+        "type": "string",
+        "name": "request_type"
+      },
+      {
+        "identifier": [
+          "nebula",
+          "HTTP_DYNAMIC"
+        ],
+        "type": "string",
+        "name": "referer_hit"
+      },
+      {
+        "identifier": [
+          "nebula",
+          "HTTP_DYNAMIC"
+        ],
+        "type": "string",
+        "name": "notices"
+      },
+      {
+        "identifier": [
+          "nebula",
+          "HTTP_DYNAMIC"
+        ],
+        "type": "string",
+        "name": "geo_city"
+      }
+    ]
+  }
+]

@@ -1,0 +1,78 @@
+[
+  {
+    "topValue": false,
+    "remark": "单个设备5分钟动态资源POST请求总量",
+    "srcVariablesID": [
+      [
+        "nebula",
+        "HTTP_DYNAMIC"
+      ]
+    ],
+    "name": "did__visit__dynamic_count_post__5m__rt",
+    "config": {
+      "reductions": [
+        {
+          "srcProperty": {
+            "identifier": [],
+            "type": "double",
+            "name": "value"
+          },
+          "destProperty": {
+            "identifier": [],
+            "type": "long",
+            "name": "value"
+          },
+          "type": "doublecount"
+        }
+      ],
+      "groupedKeys": [
+        {
+          "identifier": [],
+          "type": "string",
+          "name": "did"
+        }
+      ],
+      "aggregateType": "realtime",
+      "period": 300,
+      "condition": {
+        "conditions": [
+          {
+            "srcProperty": {
+              "identifier": [
+                "nebula",
+                "HTTP_DYNAMIC"
+              ],
+              "type": "string",
+              "name": "method"
+            },
+            "type": "stringequals",
+            "param": "POST"
+          }
+        ],
+        "type": "and"
+      }
+    },
+    "app": "nebula",
+    "internal": true,
+    "module": "realtime",
+    "properties": [
+      {
+        "identifier": [
+          "nebula",
+          "did__visit__dynamic_count_post__5m__rt"
+        ],
+        "type": "string",
+        "name": "did"
+      }
+    ],
+    "priority": 3,
+    "chineseName": "",
+    "keyTopValue": false,
+    "expire": 0,
+    "ttl": 300,
+    "type": "aggregate",
+    "dimension": "did",
+    "valueType": "double",
+    "srcEventID": null
+  }
+]
