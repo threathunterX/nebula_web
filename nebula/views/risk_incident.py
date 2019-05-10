@@ -3,8 +3,20 @@
 from __future__ import absolute_import
 import logging
 import json
-
+import json
+import logging
+from tornado.web import RequestHandler
+from enum import Enum
+from enum import unique
+import requests
+import json
+import hashlib
+import base64
+from datetime import datetime
+from Crypto.Cipher import AES
+from Crypto import Random
 from threathunter_common.util import json_dumps, ip_match
+from ..dao.config_dao import ConfigCustDao
 
 from nebula.dao.user_dao import authenticated
 from .base import BaseHandler
@@ -482,3 +494,149 @@ class RisksHistoryHandler(BaseHandler):
 #    except Exception as e:
 #        logger.error(e)
 #        return incident_statistics
+
+
+def AesEncryptSeg(ip, SNKEY):
+    remainder = len(ip) % 16
+    if remainder:
+        padded_value = ip + '\0' * (16 - remainder)
+    else:
+        padded_value = ip
+    iv = Random.new().read(AES.block_size)
+    cipher = AES.new(SNKEY, AES.MODE_CFB, iv, segment_size=128)
+    value = cipher.encrypt(padded_value)[:len(ip)]
+    ciphertext = iv + value
+    return base64.encodestring(ciphertext).strip()
+
+
+def AesDecryptSeg(ip, SNKEY):
+    data = base64.decodestring(ip)
+    cihpertxt = data[AES.block_size:]
+    remainder = len(cihpertxt) % 16
+    if remainder:
+        padded_value = cihpertxt + '\0' * (16 - remainder)
+    else:
+        padded_value = cihpertxt
+    cryptor = AES.new(SNKEY, AES.MODE_CFB, data[0:AES.block_size], segment_size=128)
+    plain_text = cryptor.decrypt(padded_value)
+    return plain_text[0:len(cihpertxt)]
+
+
+def request_check_ip(ip_list, SNUSER, SNKEY):
+    ips = []
+    for ip in ip_list:
+        u = {}
+        u["ip"] = ip
+        ips.append(u)
+    ips = json.dumps(ips)
+    aes_ips_str = AesEncryptSeg(ips, SNKEY)
+    payload = {
+        "snuser": SNUSER,
+        "data": aes_ips_str,
+    }
+    SRV_URL = "https://api.threathunter.cn/zhbpro/"
+    POST_URL = SRV_URL + "blackip_check"
+    r = requests.post(POST_URL, data=json.dumps(payload))
+    r_json = r.json()
+    status_code = r_json['status']
+    if status_code == 200:
+        data = AesDecryptSeg(r_json["data"], SNKEY)
+    else:
+        data = ''
+    errmsg = r_json['errmsg']
+    return (status_code, data, errmsg)
+
+
+def request_check_phone(phones, SNUSER, SNKEY):
+    users = []
+    for user in phones:
+        u = {}
+        usha1 = hashlib.sha1(user).hexdigest()
+        u["user"] = usha1
+        users.append(u)
+    pstr = json.dumps(users)
+    cstr = AesEncryptSeg(pstr, SNKEY)
+    payload = {
+        "snuser": SNUSER,
+        "data": cstr
+    }
+    SRV_URL = "https://api.threathunter.cn/zhbpro/"
+    POST_URL = SRV_URL + "phone_no_check"
+    r = requests.post(POST_URL, data=json.dumps(payload))
+    r_json = r.json()
+    status_code = r_json.get('status')
+    if status_code == 200:
+        data = AesDecryptSeg(r_json.get('data'), SNKEY)
+    else:
+        data = ''
+    msg = r_json.get('errmsg')
+    return (status_code, data, msg)
+
+
+def config_from_database():
+    config = ConfigCustDao().list_all_config()
+    logger.error('SNUSER result {}'.format(config))
+    SNUSER = ''
+    SNKEY = ''
+    for v in config:
+        key = v.get('key')
+        if key == 'SNUSER':
+            SNUSER = v.get('value')
+        elif key == 'SNKEY':
+            SNKEY = v.get('value')
+        else:
+            pass
+    return (SNUSER, SNKEY)
+
+class BlackHandler(RequestHandler):
+    @authenticated
+    def get(self):
+        """
+        :argument
+        type: black_ip / phone_number
+        ip: black_ip
+        phone_number: phone_number
+        :return:
+        status_code: status code
+        status_message: status message
+        result: result
+        """
+        result = dict(
+            status_code=500,
+            status_message='program error',
+            result=[],
+        )
+        (SNUSER, SNKEY) = config_from_database()
+        if SNUSER == '' or SNKEY == '':
+            result['status_message'] = 'configuration is None'
+            result['status_code'] = 412
+            self.write(json.dumps(result))
+        else:
+            _type = self.get_argument("type", "")
+            if _type == 'black_ip':
+                ip = self.get_argument("ip", "")
+                if ip != '':
+                    ips = [ip]
+                    status_code, data, msg= request_check_ip(ips, SNUSER, SNKEY)
+                else:
+                    status_code = 412
+                    msg = 'Precondition Failed'
+                    data = []
+            elif _type == 'phone_number':
+                phone_number = self.get_argument("phone_number", "")
+                if phone_number != '':
+                    phones = [str(phone_number)]
+                    status_code, data, msg = request_check_phone(phones, SNUSER, SNKEY)
+                else:
+                    status_code = 412
+                    msg = 'Precondition Failed'
+                    data = []
+            else:
+                status_code = 412
+                msg = 'Precondition Failed'
+                data = []
+            result['status_code'] = status_code
+            result['result'] = data
+            result['status_message'] = msg
+
+            self.write(json.dumps(result))

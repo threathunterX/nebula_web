@@ -1,0 +1,15 @@
+*~
+*.pyc
+.idea/**/*
+.ropeproject/**/*
+nebula.log
+babel_python
+threathunter_common
+nebula_backend
+venv
+nebula/statics
+conf/metrics.conf
+nebula/middleware/swagger
+.cache
+**/*/.DS_Store
+.DS_Store

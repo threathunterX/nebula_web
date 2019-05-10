@@ -314,6 +314,7 @@ def webui(ctx, port, debug):
 #        (r"/platform/risks/statistics", risk_incident.RisksStatisticsHandler),
 #        (r"/platform/risks/realtime", risk_incident.RisksRealtimeHandler),
         (r"/platform/risks/history", risk_incident.RisksHistoryHandler),
+        (r'/platform/risks/black_check', risk_incident.BlackHandler),
         (r"/platform/risks/(.*)", risk_incident.IncidentQueryHandler),
         (r"/platform/notices/export", notice_export.NoticeExportHandler),
         (r"/platform/notices/export/(.*)", tornado.web.StaticFileHandler, {"path": settings.NoticeExport_Path}),
