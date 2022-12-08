@@ -5,7 +5,7 @@ pycparser==2.19
 argparse==1.4.0
 backports-abc==0.4
 backports.ssl-match-hostname==3.5.0.1
-certifi==2018.11.29
+certifi==2022.12.7
 cffi==1.11.5
 click==7.0
 elasticsearch==6.3.1
